@@ -1,0 +1,13 @@
+name: pyflink
+channels:
+  - defaults
+dependencies:
+  - python=3.9.13
+  - pre-commit
+  - pandas
+  - requests
+  - schedule
+  - protobuf
+  - pip
+  - pip:
+    - apache-flink==1.18.0

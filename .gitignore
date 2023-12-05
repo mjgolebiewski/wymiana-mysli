@@ -1,0 +1,33 @@
+# .gitignore
+
+# Visual Studio Code settings
+.vscode
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Virtual environment for Python
+.venv
+
+# Data folder
+data/*
+
+# Python byte-compiled files
+__pycache__
+
+# Zip file containing the core directory
+core.zip
+
+# External jars to import
+jars/*
+
+# Notebooks
+
+# Local env
+config/.*
+
+# Idea settings
+.idea
+
+# Local scripts
+scripts/local/*
