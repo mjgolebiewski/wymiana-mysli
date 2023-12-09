@@ -6,8 +6,8 @@ dependencies:
   - pre-commit
   - pandas
   - requests
-  - schedule
   - protobuf
   - pip
+  - chardet
   - pip:
     - apache-flink==1.18.0

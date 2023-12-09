@@ -8,11 +8,7 @@ class TableEnvironmentSingleton:
         self._table_env = None
         self._logger = LoggerSingleton()
 
-    def get_instance(
-        self,
-        mode: str = "batch",
-        opts: Configuration = None,
-    ) -> TableEnvironment:
+    def get_instance(self, mode: str = "batch", opts: dict = None) -> TableEnvironment:
         """
         Get or initialize the TableEnvironment instance.
 
@@ -27,7 +23,9 @@ class TableEnvironmentSingleton:
             )
 
             if opts is not None:
-                env_settings = env_settings.with_configuration(opts)
+                config = Configuration()
+                for k, v in opts.items():
+                    config.set_string(k, v)
 
             self._table_env = TableEnvironment.create(
                 environment_settings=env_settings.build()
