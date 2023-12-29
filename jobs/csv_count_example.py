@@ -26,7 +26,7 @@ def main():
     csv_table_sink = CsvTableSink(
         field_names=field_names,
         field_types=field_types,
-        path="/home/mjg/dev/pyflink-playground/data/output/word_count_table.csv",
+        path="/tmp/word_count_table.csv",
         field_delimiter=",",
         write_mode=WriteMode.OVERWRITE,
     )
