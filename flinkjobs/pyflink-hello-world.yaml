@@ -4,7 +4,6 @@ metadata:
   name: pyflink-hello-world
 spec:
   image: golebtom/pyflink-hello-world:v0.26
-#  image: golebtom/pyflink-conda:v0.2
   flinkVersion: v1_18
   flinkConfiguration:
     taskmanager.numberOfTaskSlots: "1"
