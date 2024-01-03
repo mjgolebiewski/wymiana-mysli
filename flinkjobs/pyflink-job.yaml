@@ -3,7 +3,7 @@ kind: FlinkDeployment
 metadata:
   name: pyflink-job
 spec:
-  image: ghcr.io/mjgolebiewski/wymiana-mysli/flink-wiosenna:0.0.4
+  image: ghcr.io/mjgolebiewski/wymiana-mysli/flink-wiosenna:0.0.6
   flinkVersion: v1_18
   flinkConfiguration:
     taskmanager.numberOfTaskSlots: "1"
@@ -19,6 +19,6 @@ spec:
   job:
     jarURI: local:///opt/flink/opt/flink-python-1.18.0.jar
     entryClass: "org.apache.flink.client.python.PythonDriver"
-    args: ["-pyclientexec", "/opt/conda/envs/pyflink/bin/python3", "-py", "/opt/flink/usrlib/csv_count_example.py"]
+    args: ["-pyclientexec", "/opt/conda/envs/pyflink/bin/python3", "-py", "/opt/flink/usrlib/table_ha_example.py"]
     parallelism: 2
     upgradeMode: stateless
