@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Run bump-my-version to automatically increment the version
-bump-my-version bump -v patch
+bump-my-version bump -v patch --allow-dirty
 
 # Extract the current version from the configuration file
 CURRENT_VERSION=$(grep "current_version" pyproject.toml | sed -E 's/.*=//')
