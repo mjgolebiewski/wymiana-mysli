@@ -1,5 +1,5 @@
 from core.shared.table_env import TableEnvironmentSingleton
-from pyflink.table import Schema, DataTypes, TableDescriptor
+from pyflink.table import Schema, DataTypes, TableDescriptor, FormatDescriptor
 import pyflink.table.expressions as fnc
 
 
@@ -77,7 +77,18 @@ def main():
         .build(),
     )
 
-    table.execute_insert("kafka_sink")
+    # TODO: zapis do minio s3
+    t_env.create_temporary_table(
+        "minio_sink",
+        TableDescriptor.for_connector("filesystem")
+        .format(FormatDescriptor.for_format("parquet").build())
+        .option("path", "s3://192.168.5.208:9001/flink-sink")
+        .schema(schema)
+        .build(),
+    )
+    table.execute_insert("minio_sink")
+
+    # table.execute_insert("kafka_sink")
 
 
 if __name__ == "__main__":
