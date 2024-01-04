@@ -23,6 +23,6 @@ spec:
   job:
     jarURI: local:///opt/flink/opt/flink-python-1.18.0.jar
     entryClass: "org.apache.flink.client.python.PythonDriver"
-    args: ["-pyclientexec", "/opt/conda/envs/pyflink/bin/python3", "-py", "/opt/flink/usrlib/table_ha_example.py"]
+    args: ["-pyclientexec", "/opt/conda/envs/pyflink/bin/python3", "-py", "/opt/flink/usrlib/pyflink_job.py"]
     parallelism: 2
     upgradeMode: stateless
