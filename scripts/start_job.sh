@@ -11,10 +11,10 @@ CURRENT_VERSION=$(grep "current_version" pyproject.toml | sed -E 's/.*=//')
 ADDRESS=ghcr.io/mjgolebiewski/wymiana-mysli/flink-wiosenna
 
 # Build and push Docker image
-docker build . -t $ADDRESS:$CONTAINER_VERSION
-docker push $ADDRESS:$CONTAINER_VERSION
+docker build . -t $ADDRESS:$CURRENT_VERSION
+docker push $ADDRESS:$CURRENT_VERSION
 
 # Commit and push changes to Git
 git add .
-git commit -m "job start using version: $CONTAINER_VERSION"
+git commit -m "job start using version: $CURRENT_VERSION"
 git push wiosenna dev
