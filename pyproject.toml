@@ -6,4 +6,4 @@ use_parentheses = true
 line_length = 88
 
 [tool.bump_my_version]
-current_version = "0.0.6a"
+current_version = "0.0.6"
