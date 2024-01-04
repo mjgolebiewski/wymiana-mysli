@@ -25,7 +25,7 @@ sed -i 's/^#  - pyflink-job.yaml/  - pyflink-job.yaml/' flinkjobs/kustomization.
 # Commit and push changes to Git
 git add .
 git commit -m "Job started using version: $CURRENT_VERSION"
-git push origin dev
+git push wiosenna dev
 
 echo "Job started using version: $CURRENT_VERSION."
 echo "Flink UI available: https://flink.n4next.eu/"
