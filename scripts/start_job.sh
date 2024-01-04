@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # Run bump-my-version to automatically increment the version
 bump-my-version bump -v patch
 
@@ -14,7 +13,12 @@ ADDRESS=ghcr.io/mjgolebiewski/wymiana-mysli/flink-wiosenna
 docker build . -t $ADDRESS:$CURRENT_VERSION
 docker push $ADDRESS:$CURRENT_VERSION
 
+# Uncomment the line in kustomization.yaml
+sed -i 's/^#  - pyflink-job.yaml/  - pyflink-job.yaml/' flinkjobs/kustomization.yaml
+
 # Commit and push changes to Git
 git add .
-git commit -m "job start using version: $CURRENT_VERSION"
+git commit -m "job started using version: $CURRENT_VERSION"
 git push wiosenna dev
+
+echo "Job started using version: $CURRENT_VERSION."
