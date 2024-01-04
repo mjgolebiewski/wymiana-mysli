@@ -1,13 +1,11 @@
 #!/bin/bash
 
-# Extract the current version from the configuration file
-CURRENT_VERSION=$(grep "current_version" pyproject.toml | sed -E 's/.*=//')
 
 # Run bump-my-version to automatically increment the version
-bump-my-version bump --current-version "$CURRENT_VERSION"
+bump-my-version bump -v patch
 
-# Get the latest version from the pyproject.toml file
-CONTAINER_VERSION=$(grep "version" pyproject.toml | sed -E 's/.*=//')
+# Extract the current version from the configuration file
+CURRENT_VERSION=$(grep "current_version" pyproject.toml | sed -E 's/.*=//')
 
 # # Build and push Docker image
 # docker build . -t ghcr.io/mjgolebiewski/wymiana-mysli/flink-wiosenna:$CONTAINER_VERSION
