@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Extract the current version from the configuration file
-CURRENT_VERSION=$(grep "current_version" pyproject.toml | sed -E 's/.*=//')
+# Extract the current version from the configuration file and trim the quotes
+CURRENT_VERSION=$(grep "current_version" pyproject.toml | sed -n 's/.*= *"\([^"]*\).*/\1/p')
 
 # Comment out the line in kustomization.yaml
 sed -i 's/  - pyflink-job.yaml/#  - pyflink-job.yaml/' flinkjobs/kustomization.yaml
