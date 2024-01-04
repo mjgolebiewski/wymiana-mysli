@@ -9,8 +9,8 @@ def main():
         mode="stream",
         opts={
             "log.level": "DEBUG",
-            # "python.executable": "/home/mjg/miniconda3/envs/pyflink/bin/python",
-            # "pipeline.jars": "file:///home/mjg/dev/pyflink-playground/jars/flink-sql-connector-kafka-3.0.2-1.18.jar",
+            "python.executable": "/home/mjg/miniconda3/envs/pyflink/bin/python",
+            "pipeline.jars": "file:///home/mjg/dev/pyflink-playground/jars/flink-sql-connector-kafka-3.0.2-1.18.jar",
         },
     )
 
