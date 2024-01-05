@@ -55,7 +55,7 @@ def main():
             "rowtime",
             fnc.to_timestamp(
                 fnc.col("last_updated"),
-                "yyyy-MM-dd'T'HH:mm:ss.SSSSSS+00:00",
+                "yyyy-MM-ddTHH:mm:ss.SSSSSS+00:00",
             ),
         )
         .watermark("rowtime", fnc.col("rowtime") - interval)
