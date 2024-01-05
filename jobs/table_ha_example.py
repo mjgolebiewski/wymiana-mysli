@@ -81,7 +81,7 @@ def main():
         "minio_sink",
         TableDescriptor.for_connector("filesystem")
         .format(FormatDescriptor.for_format("parquet").build())
-        .option("path", "s3://192.168.5.208:9001/flink-sink")
+        .option("path", "s3://minio-api.apps:9000/flink-sink/")
         .schema(schema)
         .build(),
     )
