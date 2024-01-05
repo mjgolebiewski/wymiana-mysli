@@ -1,4 +1,4 @@
-FROM docker.io/golebtom/pyflink-hello-world:v0.26
+FROM docker.io/golebtom/pyflink-conda:v0.2
 
 ARG SCRIPT_PATH
 
