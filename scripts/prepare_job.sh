@@ -25,10 +25,4 @@ docker push "$FULL_ADDRESS"
 # Uncomment the line in kustomization.yaml
 sed -i 's/^#  - pyflink-job.yaml/  - pyflink-job.yaml/' flinkjobs/kustomization.yaml
 
-# Commit and push changes to Git
-git add .
-git commit -m "Job started using version: $CURRENT_VERSION"
-git push wiosenna dev
-
-echo "Job started using version: $CURRENT_VERSION"
-echo "Current Job on Flink UI available at: https://flink.n4next.eu/#/job/running"
+echo "Job $1 prepared using version: $CURRENT_VERSION"

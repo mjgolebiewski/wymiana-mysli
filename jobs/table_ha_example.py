@@ -1,6 +1,8 @@
 from core.shared.table_env import TableEnvironmentSingleton
-from pyflink.table import Schema, DataTypes, TableDescriptor, FormatDescriptor
+from pyflink.table import Schema, DataTypes, TableDescriptor
 import pyflink.table.expressions as fnc
+
+# , FormatDescriptor
 
 
 def main():
@@ -47,7 +49,7 @@ def main():
         .build()
     )
 
-    kafka_address = "http://192.168.5.205:9092"
+    kafka_address = "http://my-cluster-kafka-plain-bootstrap.kafka:9092"
 
     t_env.create_temporary_table(
         "kafka_source",
@@ -67,27 +69,27 @@ def main():
         & (fnc.col("state") == "0.0")
     )
 
-    # t_env.create_temporary_table(
-    #     "kafka_sink",
-    #     TableDescriptor.for_connector("kafka")
-    #     .schema(schema)
-    #     .option("properties.bootstrap.servers", kafka_address)
-    #     .option("topic", "kafka-sink-topic")
-    #     .option("value.format", "json")
-    #     .build(),
-    # )
-
     t_env.create_temporary_table(
-        "minio_sink",
-        TableDescriptor.for_connector("filesystem")
-        .format(FormatDescriptor.for_format("parquet").build())
-        .option("path", "s3://192.168.5.208:9001/flink-sink")
+        "kafka_sink",
+        TableDescriptor.for_connector("kafka")
         .schema(schema)
+        .option("properties.bootstrap.servers", kafka_address)
+        .option("topic", "kafka-sink-topic")
+        .option("value.format", "json")
         .build(),
     )
-    table.execute_insert("minio_sink")
 
-    # table.execute_insert("kafka_sink")
+    # t_env.create_temporary_table(
+    #     "minio_sink",
+    #     TableDescriptor.for_connector("filesystem")
+    #     .format(FormatDescriptor.for_format("parquet").build())
+    #     .option("path", "s3://192.168.5.208:9001/flink-sink")
+    #     .schema(schema)
+    #     .build(),
+    # )
+    # table.execute_insert("minio_sink")
+
+    table.execute_insert("kafka_sink")
 
 
 if __name__ == "__main__":
