@@ -31,4 +31,4 @@ git commit -m "Job started using version: $CURRENT_VERSION"
 git push wiosenna dev
 
 echo "Job started using version: $CURRENT_VERSION"
-echo "Flink UI available: https://flink.n4next.eu/"
+echo "Current Job on Flink UI available at: https://flink.n4next.eu/#/job/running"

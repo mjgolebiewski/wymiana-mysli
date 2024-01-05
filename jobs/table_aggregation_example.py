@@ -18,7 +18,7 @@ def main():
     interval = fnc.lit(30).seconds
 
     # Define your Kafka properties
-    kafka_address = "http://192.168.5.205:9092"
+    kafka_address = "http://my-cluster-kafka-plain-bootstrap.kafka:9092"
 
     # Define the table schema
     schema = (
