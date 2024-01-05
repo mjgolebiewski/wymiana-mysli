@@ -19,6 +19,7 @@ def main():
 
     # Define your Kafka properties
     kafka_address = "http://my-cluster-kafka-plain-bootstrap.kafka:9092"
+    # kafka_address = "http://192.168.5.203:9092"
 
     # Define the table schema
     schema = (
@@ -55,7 +56,7 @@ def main():
             "rowtime",
             fnc.to_timestamp(
                 fnc.col("last_updated"),
-                "yyyy-MM-ddTHH:mm:ss.SSSSSS+00:00",
+                "yyyy-MM-dd'T'HH:mm:ss.SSSSSS+00:00",
             ),
         )
         .watermark("rowtime", fnc.col("rowtime") - interval)
