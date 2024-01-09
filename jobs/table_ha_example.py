@@ -48,6 +48,7 @@ def main():
     )
 
     kafka_address = "http://my-cluster-kafka-plain-bootstrap.kafka:9092"
+    # kafka_address = "http://192.168.5.205:9092"
 
     t_env.create_temporary_table(
         "kafka_source",
@@ -71,23 +72,24 @@ def main():
     #     "kafka_sink",
     #     TableDescriptor.for_connector("kafka")
     #     .schema(schema)
-    #     .option("properties.bootstrap.servers", kafka_address)
+    #     .option("properties.bootstrap.servers", "localhost:29092")
     #     .option("topic", "kafka-sink-topic")
     #     .option("value.format", "json")
     #     .build(),
     # )
+    # table.execute_insert("kafka_sink")
 
     t_env.create_temporary_table(
         "minio_sink",
         TableDescriptor.for_connector("filesystem")
-        .format(FormatDescriptor.for_format("parquet").build())
-        .option("path", "s3://minio-api.apps:9000/flink-sink/")
+        .format(FormatDescriptor.for_format("json").build())
+        .option("path", "s3://flink-sink/test/")
         .schema(schema)
         .build(),
     )
     table.execute_insert("minio_sink")
 
-    # table.execute_insert("kafka_sink")
+    # .option("path", "s3://minio-api.apps:9000/flink-sink/")
 
 
 if __name__ == "__main__":
