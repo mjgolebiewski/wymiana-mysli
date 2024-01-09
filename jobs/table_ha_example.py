@@ -83,7 +83,7 @@ def main():
         "minio_sink",
         TableDescriptor.for_connector("filesystem")
         .format(FormatDescriptor.for_format("json").build())
-        .option("path", "s3://flink-sink/test/")
+        .option("path", "s3://flink-sink/")
         .schema(schema)
         .build(),
     )
