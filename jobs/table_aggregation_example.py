@@ -59,7 +59,7 @@ def main():
                 "yyyy-MM-dd'T'HH:mm:ss.SSSSSS+00:00",
             ),
         )
-        .watermark("rowtime", fnc.col("rowtime") - interval)
+        .watermark("rowtime", fnc.col("rowtime") - fnc.lit(5).seconds)
         .build()
     )
 
