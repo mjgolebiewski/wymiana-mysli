@@ -7,10 +7,10 @@ spec:
   flinkVersion: v1_18
   flinkConfiguration:
     taskmanager.numberOfTaskSlots: "1"
-    s3.endpoint: http://192.168.5.208:9000
-    s3.path.style.access: "true"
-    s3.access-key: 3AgEzGJQD3ueABoeR6aO
-    s3.secret-key: ZMWNwLl3JrjxhZ8QTzNevuW9QMUfINC2ArErLegX
+ #   s3.endpoint: http://192.168.5.208:9000
+ #   s3.path.style.access: "true"
+ #   s3.access-key: 3AgEzGJQD3ueABoeR6aO
+ #   s3.secret-key: ZMWNwLl3JrjxhZ8QTzNevuW9QMUfINC2ArErLegX
   serviceAccount: flink
   jobManager:
     resource:
