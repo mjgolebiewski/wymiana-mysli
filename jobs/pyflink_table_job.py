@@ -90,7 +90,7 @@ def main():
 #    )
 #    table.execute_insert("minio_sink")
 
-    # .option("path", "s3://minio-api.apps:9000/flink-sink/")
+    # .option("path", "s3://192.168.5.208:9000/flink-sink/")
 
 
 if __name__ == "__main__":
