@@ -1,6 +1,9 @@
 from core.shared.stream_env import StreamExecutionEnvironmentSingleton
 from pyflink.datastream.connectors.kafka import FlinkKafkaConsumer, FlinkKafkaProducer
-from pyflink.datastream.formats.json import JsonRowDeserializationSchema, JsonRowSerializationSchema
+from pyflink.datastream.formats.json import (
+    JsonRowDeserializationSchema,
+    JsonRowSerializationSchema,
+)
 from pyflink.common import Types
 
 
@@ -12,12 +15,10 @@ def main():
         },
     )
 
-    s_env.add_jars(
-        "file:///opt/flink/lib/flink-sql-connector-kafka-3.0.2-1.18.jar"
-    )
+    s_env.add_jars("file:///opt/flink/lib/flink-sql-connector-kafka-3.0.2-1.18.jar")
     # s_env.get_checkpoint_config().set_checkpoint_interval(
     #     30000
-    # ).set_tolerable_checkpoint_failure_number(2)    
+    # ).set_tolerable_checkpoint_failure_number(2)
 
     # Define your Kafka properties
     kafka_properties = {
@@ -75,9 +76,8 @@ def main():
 
     # Define the aggregation logic
     result_stream = stream_source.filter(
-        lambda x: x["entity_id"]
-        == "switch.shellyplus2pm_b8d61a89efac_switch_1"
-        and x["state"] == "on" 
+        lambda x: x["entity_id"] == "switch.shellyplus2pm_b8d61a89efac_switch_1"
+        and x["state"] == "on"
     )
 
     # Define the serialization schema
