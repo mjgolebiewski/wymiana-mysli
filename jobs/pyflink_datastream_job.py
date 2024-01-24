@@ -12,6 +12,7 @@ def main():
     s_env = StreamExecutionEnvironmentSingleton().get_instance(
         {
             "log.level": "DEBUG",
+            "python.executable": "/opt/conda/envs/pyflink/bin/python3",
         },
     )
 
