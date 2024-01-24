@@ -88,8 +88,6 @@ def main():
 #    )
 #    table.execute_insert("minio_sink")
 
-    # .option("path", "s3://192.168.5.208:9000/flink-sink/")
-
 
 if __name__ == "__main__":
     main()
