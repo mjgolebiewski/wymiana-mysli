@@ -3,7 +3,7 @@ kind: FlinkDeployment
 metadata:
   name: pyflink-job
 spec:
-  image: ghcr.io/mjgolebiewski/wymiana-mysli/flink-wiosenna:0.0.35
+  image: ghcr.io/mjgolebiewski/wymiana-mysli/flink-wiosenna:0.0.36
   flinkVersion: v1_18
   flinkConfiguration:
     taskmanager.numberOfTaskSlots: "1"
